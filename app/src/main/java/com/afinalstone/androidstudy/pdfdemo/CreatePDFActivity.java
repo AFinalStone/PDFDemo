@@ -1,18 +1,15 @@
 package com.afinalstone.androidstudy.pdfdemo;
 
-import android.graphics.BitmapFactory;
+import android.content.Intent;
 import android.graphics.pdf.PdfDocument;
-import android.net.Uri;
-import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ScrollView;
 
+import com.afinalstone.androidstudy.pdfdemo.readpdf.ReadPDFActivity;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
@@ -26,7 +23,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URL;
 
 /**
  * 生成pdf文档到SD卡下，byte.pdf,可以生成中文字符
@@ -35,11 +31,11 @@ import java.net.URL;
  * @author yt
  * @date 2015-1-15
  */
-public class MainActivity extends MyBaseActivity {
+public class CreatePDFActivity extends MyBaseActivity {
 
     View contextView;
     ScrollView scrollView;
-
+    String filePath;
     @Override
     public void initView() {
         contextView = View.inflate(this, R.layout.activity_main, null);
@@ -75,6 +71,12 @@ public class MainActivity extends MyBaseActivity {
     }
 
 
+    public void onReadPDF(View view){
+        Intent intent = new Intent(this,ReadPDFActivity.class);
+        intent.putExtra(ReadPDFActivity.fileName,filePath);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // 为toolbar创建Menu
@@ -83,7 +85,7 @@ public class MainActivity extends MyBaseActivity {
     }
 
     private OutputStream getOutputStream(String fileName) throws IOException {
-        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/"+fileName;
+        filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/"+fileName;
         File file = new File(filePath);
         if (!file.exists())
             file.createNewFile();

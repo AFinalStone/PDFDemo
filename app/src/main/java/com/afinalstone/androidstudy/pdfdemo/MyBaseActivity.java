@@ -24,8 +24,6 @@ import com.afinalstone.androidstudy.pdfdemo.permission.annotation.OnMPermissionN
  *
  */
 public abstract class MyBaseActivity extends AppCompatActivity {
-	/**当前Activity对象**/
-	public FragmentActivity mContext = this;
 	/**初始化布局文件**/
 	public abstract void initView();
 	/**初始化页面数据**/

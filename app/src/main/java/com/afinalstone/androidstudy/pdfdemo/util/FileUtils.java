@@ -1,4 +1,4 @@
-package com.afinalstone.androidstudy.pdfdemo;
+package com.afinalstone.androidstudy.pdfdemo.util;
 
 import android.util.Log;
 

@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.afinalstone.androidstudy.pdfdemo.MainActivity">
+    tools:context="com.afinalstone.androidstudy.pdfdemo.CreatePDFActivity">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/ic_launcher_round"
         android:background="@color/colorAccent"
+        android:layout_margin="10dp"
         android:gravity="center"/>
 
 </LinearLayout>
